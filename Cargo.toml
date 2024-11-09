@@ -1,0 +1,17 @@
+[package]
+authors = ["Misha Karpov <mishavkrpv@gmail.com>"]
+categories = ["command-line-utilities"]
+description = ""
+edition = "2021"
+homepage = "https://github.com/mishakrpv/nutshell"
+keywords = ["cli", "shell", "tool", "utility"]
+license = "GNU"
+name = "nutshell"
+readme = "README.md"
+repository = "https://github.com/mishakrpv/nutshell"
+rust-version = "1.82.0"
+version = "0.1.0"
+
+[dependencies]
+anyhow = "1.0.93"
+clap = { version = "4.5.20", features = ["derive"] }
