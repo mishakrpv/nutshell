@@ -4,12 +4,13 @@ use std::path::PathBuf;
 use anyhow::{ensure, Context, Result};
 
 pub fn config_path() -> Result<PathBuf> {
-    let path = match env::var_os("_NUTSH_CONFIG_DIR") {
+    let dir = match env::var_os("_NUTSH_CONFIG_DIR") {
         Some(path) => PathBuf::from(path),
         None => dirs::config_local_dir()
-            .context("could not find config directory, please set _NUTSH_CONFIG_DIR manually")?
-            .join("nutshell.lua"),
+            .context("could not find config directory, please set _NUTSH_CONFIG_DIR manually")?,
     };
+
+    let path = dir.join("nutshell.lua");
 
     ensure!(
         path.is_absolute(),
